@@ -30,19 +30,16 @@
 
             {% block form %}
                 <div id="selected_node"></div>
-                <!--<form action="/mmlog/add_activity_sheet/" method="POST">-->
-                    {% load crispy_forms_tags %}
+                <form action="/mmlog/add_activity_sheet/" method="POST">
                     {% csrf_token %}
-                    {% crispy form form.helper %}
-                    <!--<table>-->
-                    <!--{{ form }}-->
-                    <!--{% for field in form.visible_fields %}-->
-                        <!--{{ field.errors }}-->
-                        <!--{{ field.help_text }}-->
-                        <!--{{ field }}-->
-                    <!--{% endfor %}-->
-                        <!--{{ form.entry_date.label}} {{ form.entry_date }} {{ form.entry_date.errors}}-->
-                    <!--</table>-->
-                    <!--<input type="submit" value="Submit" />-->
+                    <div class="row">
+                        <div class="five twelfths">
+                            {{ form.entry_date.label }} {{ form.entry_date }} {{ form.entry_date.errors}}
+                        </div>
+                        <div class="five twelfths skip-one">
+                            {{ form.entry_date.label }} {{ form.entry_date }} {{ form.entry_date.errors}}
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" />
                 </form>
             {% endblock %}
