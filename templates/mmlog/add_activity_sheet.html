@@ -1,0 +1,48 @@
+{% extends "mmlog/base.html" %}
+
+            {% block tree%}
+                <!-- QUESTA PARTE DEVE ESSERE CREATA DINAMICAMENTE
+                    DAI DATI DEL DB -->
+                <div id="tree">
+                  <ul id="treeData" style="display: none;">
+                    <li id="1">Impianto A
+                      <ul>
+                        <li id="3">Macchina 1
+                          <ul>
+                              <li id="5">Componente 1.1
+                                  <ul>
+                                    <li id="5">Sub-componente 1.1.1
+                                    <li id="6">Sub-componente 1.1.2
+                                  </ul>
+                              <li id="6">Componente 1.2
+                          </ul>
+                        <li id="4">Macchina 2
+                      </ul>
+                    <li id="2">Impianto B
+                      <ul>
+                        <li id="7">Macchina 1
+                        <li id="8">Macchina 2
+                      </ul>
+                  </ul>
+                </div>
+
+            {% endblock %}
+
+            {% block form %}
+                <div id="selected_node"></div>
+                <!--<form action="/mmlog/add_activity_sheet/" method="POST">-->
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    {% crispy form form.helper %}
+                    <!--<table>-->
+                    <!--{{ form }}-->
+                    <!--{% for field in form.visible_fields %}-->
+                        <!--{{ field.errors }}-->
+                        <!--{{ field.help_text }}-->
+                        <!--{{ field }}-->
+                    <!--{% endfor %}-->
+                        <!--{{ form.entry_date.label}} {{ form.entry_date }} {{ form.entry_date.errors}}-->
+                    <!--</table>-->
+                    <!--<input type="submit" value="Submit" />-->
+                </form>
+            {% endblock %}

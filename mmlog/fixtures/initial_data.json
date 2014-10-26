@@ -1,0 +1,65 @@
+[
+  {
+    "model": "mmlog.ActivityStatusModel",
+    "fields": {
+      "status": "Aperto"
+    }
+  },
+  {
+    "model": "mmlog.ActivityStatusModel",
+    "fields": {
+      "status": "Chiuso"
+    }
+  },
+  {
+    "model": "mmlog.InterventionTypeModel",
+    "fields": {
+      "intervention_type": "Ripristino"
+    }
+  },
+  {
+    "model": "mmlog.InterventionTypeModel",
+    "fields": {
+      "intervention_type": "Pulizia"
+    }
+  },
+    {
+    "model": "mmlog.InterventionTypeModel",
+    "fields": {
+      "intervention_type": "Miglioramento"
+    }
+  },
+  {
+    "model": "mmlog.InterventionTypeModel",
+    "fields": {
+      "intervention_type": "Sostituzione"
+    }
+  },
+  {
+    "model": "mmlog.ComponentStatusModel",
+    "fields": {
+      "component_status": "Integro"
+    }
+  },
+  {
+    "model": "mmlog.ComponentStatusModel",
+    "fields": {
+      "component_status": "Parzialmente usurato"
+    }
+  },
+    {
+    "model": "mmlog.ComponentStatusModel",
+    "fields": {
+      "component_status": "Usurato"
+    }
+  },
+  {
+    "model": "mmlog.ComponentStatusModel",
+    "fields": {
+      "component_status": "Inutilizzabile"
+    }
+  }
+]
+
+
+
