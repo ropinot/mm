@@ -11,6 +11,13 @@ from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 class ActivitySheetForm(forms.Form):
         # MODIFICA DEL WIDGET STANDARD PER I CAMPI DEL DB
         entry_date = forms.CharField(max_length=10, help_text="Data in formato gg-mm-aaaa", label="Data")
+        component = forms.CharField(max_length=100, label="Componente")
+        description = forms.CharField(max_length=100, label="Descrizione")
+
+        internal_intervention_time_days = forms.CharField(max_length=4, label="Giorni")
+        internal_intervention_time_hours = forms.CharField(max_length=4, label="Ore")
+        internal_intervention_time_minutes = forms.CharField(max_length=4, label="Minuti")
+        internal_intervention_duration = forms.CharField(max_length=4, label="Totale")
 
         class Meta:
                 # MODELLO ASSOCIATO
