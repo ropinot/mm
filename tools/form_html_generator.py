@@ -2,8 +2,8 @@ import sys
 from myhtmlgen import *
 from lxml import etree, html
 
-if len(sys.argv)< 2:
-        print "Indicare il file sorgente per il form"
+if len(sys.argv) < 3:
+        print "Indicare il file sorgente per il form come primo argomento e il file destinazione come secondo argomento"
         sys.exit(1)
 
 n = {'1': 'one',        # convert numbers to strings
@@ -49,7 +49,7 @@ content = ''
 for h in generated_html:
         content += h.__str__()
 
-with open('form.html', 'w') as f:
+with open(sys.argv[2], 'w') as f:
         content = html.fromstring(content)
         f.write(etree.tostring(content, encoding='unicode', pretty_print=True))
 
