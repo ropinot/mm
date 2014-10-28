@@ -33,29 +33,52 @@
                 <form action="/mmlog/add_activity_sheet/" method="POST">
                     {% csrf_token %}
                     <!-- FORM START -->
-                      <div class="row">
-                        <div class="three twelfths">{{ form.entry_date.label }}{{ form.entry_date }}{% for e in form.entry_date.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                        <div class="three twelfths">{{ form.entry_time.label }}{{ form.entry_time }}{% for e in form.entry_time.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                      </div>
-                      <div class="row">
-                        <div class="six twelfths">{{ form.component.label }}{{ form.component }}{% for e in form.component.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                      </div>
-                      <div class="row">
-                        <div class="ten twelfths">{{ form.description.label }}{{ form.description }}{% for e in form.description.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                      </div>
-                      <div class="row">
-                        <div class="six twelfths">{{ form.internal_responsible.label }}{{ form.internal_responsible }}{% for e in form.internal_responsible.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                        <div class="three twelfths">{{ form.num_internal_operators.label }}{{ form.num_internal_operators }}{% for e in form.num_internal_operators.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                      </div>
-                      <div class="row">
-                        <div class="three twelfths">{{ form.internal_intervention_time_days.label }}{{ form.internal_intervention_time_days }}{% for e in form.internal_intervention_time_days.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                        <div class="three twelfths">{{ form.internal_intervention_time_hours.label }}{{ form.internal_intervention_time_hours }}{% for e in form.internal_intervention_time_hours.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                        <div class="three twelfths">{{ form.internal_intervention_time_minutes.label }}{{ form.internal_intervention_time_minutes }}{% for e in form.internal_intervention_time_minutes.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                      </div>
-                      <div class="row">
-                        <div class="three twelfths">{{ form.internal_intervention_duration.label }}{{ form.internal_intervention_duration }}{% for e in form.internal_intervention_duration.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
-                      </div>
+                        <div class="row">
+    <div class="two twelfths">{{ form.entry_date.label }}{{ form.entry_date }}{% for e in form.entry_date.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+    <div class="two twelfths">{{ form.entry_time.label }}{{ form.entry_time }}{% for e in form.entry_time.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+    <div class="two twelfths">{{ form.status.label }}{{ form.status }}{% for e in form.status.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+  </div>
+  <div class="row">
+    <div class="six twelfths">{{ form.component.label }}{{ form.component }}{% for e in form.component.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+  </div>
+  <div class="row">
+    <div class="ten twelfths">{{ form.description.label }}{{ form.description }}{% for e in form.description.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+  </div>
+  <div class="row">
+    <div class="six twelfths">{{ form.internal_responsible.label }}{{ form.internal_responsible }}{% for e in form.internal_responsible.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+    <div class="two twelfths">{{ form.num_internal_operators.label }}{{ form.num_internal_operators }}{% for e in form.num_internal_operators.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+  </div>
+  <div class="row">
+    <div class="two twelfths">{{ form.internal_intervention_time_days.label }}{{ form.internal_intervention_time_days }}{% for e in form.internal_intervention_time_days.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+    <div class="two twelfths">{{ form.internal_intervention_time_hours.label }}{{ form.internal_intervention_time_hours }}{% for e in form.internal_intervention_time_hours.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+    <div class="two twelfths">{{ form.internal_intervention_time_minutes.label }}{{ form.internal_intervention_time_minutes }}{% for e in form.internal_intervention_time_minutes.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+  </div>
+  <div class="row">
+    <div class="two twelfths">{{ form.internal_intervention_duration.label }}{{ form.internal_intervention_duration }}{% for e in form.internal_intervention_duration.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div>
+  </div>
                     <!-- FORM END -->
                     <input type="submit" value="Submit" />
                 </form>
+        <script>
+                function update_total_duration(){
+                        a = $("#id_internal_intervention_time_days").val() * 60 * 24,
+                        //alert (a);
+                        b = $("#id_internal_intervention_time_hours").val() * 60,
+                        //alert (b);
+                        c = $("#id_internal_intervention_time_minutes").val(),
+                        //alert (c);
+                        $("#id_internal_intervention_duration").val(parseInt(a)+parseInt(b)+parseInt(c));
+                }
+
+                $("#id_internal_intervention_time_days").change(function(){
+                        update_total_duration();
+                });
+                $("#id_internal_intervention_time_hours").change(function(){
+                        update_total_duration();
+                });
+                $("#id_internal_intervention_time_minutes").change(function(){
+                        update_total_duration();
+                });
+
+        </script>
             {% endblock %}

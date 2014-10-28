@@ -13,18 +13,18 @@ class ActivitySheetForm(forms.Form):
         entry_date = forms.CharField(max_length=10, help_text="Data in formato gg-mm-aaaa", label="Data")
         component = forms.CharField(max_length=100, label="Componente")
         description = forms.CharField(max_length=100, label="Descrizione")
-
-        internal_intervention_time_days = forms.CharField(max_length=4, label="Giorni")
-        internal_intervention_time_hours = forms.CharField(max_length=4, label="Ore")
-        internal_intervention_time_minutes = forms.CharField(max_length=4, label="Minuti")
-        internal_intervention_duration = forms.CharField(max_length=4, label="Totale")
+        status = forms.ModelChoiceField(ActivityStatusModel.objects.all())
+        internal_intervention_time_days = forms.CharField(max_length=4, label="Giorni", initial=0)
+        internal_intervention_time_hours = forms.CharField(max_length=4, label="Ore", initial=0)
+        internal_intervention_time_minutes = forms.CharField(max_length=4, label="Minuti", initial=0)
+        internal_intervention_duration = forms.CharField(max_length=4, label="Totale (minuti)", initial=0)
 
         class Meta:
                 # MODELLO ASSOCIATO
                 model = ActivitySheetModel
 
                 # LISTA CAMPI VISIBILI NEL FORM
-                fields =  ['entry_date', 'intervention_type']
+                # fields =  ['entry_date', 'intervention_type']
 
 
 # class ActivitySheetForm(forms.ModelForm):

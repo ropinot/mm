@@ -23,13 +23,13 @@ n = {'1': 'one',        # convert numbers to strings
 generated_html = []
 
 
-def add_cells(row, token, start_from):
-
-        for i in xrange(start_from, len(token), 2):
-                cell = '{{ form.%s.label }}{{ form.%s }}{%% for e in form.%s.errors %%}<p class="red message">{{ e }}</p>{%% endfor %%}' % (token[i], token[i], token[i])
-                row <= DIV(cell, Class='{} twelfths'.format(n[token[i+1]]))
-        return row
-
+# def add_cells(row, token, start_from):
+#
+#         for i in xrange(start_from, len(token), 2):
+#                 cell = '{{ form.%s.label }}{{ form.%s }}{%% for e in form.%s.errors %%}<p class="red message">{{ e }}</p>{%% endfor %%}' % (token[i], token[i], token[i])
+#                 row <= DIV(cell, Class='{} twelfths'.format(n[token[i+1]]))
+#         return row
+#
 
 with open(sys.argv[1], 'r') as f:
         for row in f.readlines():
