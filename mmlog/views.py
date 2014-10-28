@@ -36,3 +36,5 @@ def add_activity_sheet(request):
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
+def list_activity_sheet(request):
+        return render(request, 'mmlog/list_activity_sheet.html')

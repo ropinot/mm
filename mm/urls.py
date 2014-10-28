@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # url(r'^index/$', include('mmlog.urls')),
     # url(r'^add_activity_sheet/$', include('mmlog.urls')),
     url(r'^mmlog/', include('mmlog.urls')),
+    url(r'^mmmain/', include('mmmain.urls')),
     url(r'^admin/', include(admin.site.urls)),
     # AGGIUNGERE UN URL PER GESTIRE LE RICHIESTE NON VALIDE
 )

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>{% block title %}{% if title %}{{ title }} {% else %} NO TITLE {% endif %}{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+
+    <!-- Modernizr -->
+    <script type="text/javascript" src="{{STATIC_URL}}js/modernizr-2.6.2.min.js"></script>
+    <!-- framework css -->
+    <!--[if gt IE 9]><!-->
+    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/groundwork.css">
+    <!--<![endif]-->
+    <!--[if lte IE 9]-->
+    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/groundwork-core.css">
+    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/groundwork-type.css">
+    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/groundwork-ui.css">
+    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/groundwork-anim.css">
+    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/groundwork-ie.css">
+    <!--[endif]-->
+
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery.fancytree-all.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/groundwork.all.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}mmlog/css/mmlog_styles.css">-->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/ui.fancytree.css">
+
+    <script type="text/javascript">
+    $(function(){
+      // Create the tree inside the <div id="tree"> element.
+      $("#tree").fancytree({
+                activate: function(event, data){
+                // A node was activated: display its title:
+                var node = data.node;
+                $("#id_component").val(node.title);
+                }
+        })
+    });
+    </script>
+</head>
+<body>
+<div class="row" id="header">
+    <h1 class="box">MMLOG {% block header %}{% endblock %}</h1>
+</div>
+<div class="row" id="body">
+        <div class="four fourth" id="form">
+            <p class="round box">{% block content %}{% endblock %}</p>
+        </div>
+
+</div>
+<div class="row" id="statusbar">
+    <h6 class="round box">Status bar</h6>
+</div>
+<div class="row" id="footer">
+    <h1 class="round box">Footer</h1>
+</div>
+
+
+</body>
+</html>

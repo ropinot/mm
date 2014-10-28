@@ -35,36 +35,36 @@ class ComponentStatusModel(models.Model):
 
 
 class ActivitySheetModel(models.Model):
-        entry_date = models.DateField(null=True) #data segnalazione
-        entry_time = models.TimeField(null=True) #ora segnalazione
-        component = models.CharField(max_length=20)
-        description = models.CharField(max_length=200)
-        status = models.ForeignKey(ActivityStatusModel, null=True)
-        internal_responsible = models.CharField(max_length=200)
-        num_internal_operators = models.IntegerField(default=0)
-        internal_intervention_time_days = models.IntegerField(null=True)
-        internal_intervention_time_hours = models.IntegerField(null=True)
-        internal_intervention_time_minutes = models.IntegerField(null=True)
-        internal_intervention_duration = models.IntegerField(null=True)
+        entry_date = models.DateField(null=True, blank=True) #data segnalazione
+        entry_time = models.TimeField(null=True, blank=True) #ora segnalazione
+        component = models.CharField(max_length=20, null=True, blank=True)
+        description = models.CharField(max_length=200, null=True, blank=True)
+        status = models.ForeignKey(ActivityStatusModel, null=True, blank=True)
+        internal_responsible = models.CharField(max_length=200, null=True, blank=True)
+        num_internal_operators = models.IntegerField(default=0, null=True, blank=True)
+        internal_intervention_time_days = models.IntegerField(null=True, blank=True)
+        internal_intervention_time_hours = models.IntegerField(null=True, blank=True)
+        internal_intervention_time_minutes = models.IntegerField(null=True, blank=True)
+        internal_intervention_duration = models.IntegerField(null=True, blank=True)
 
-        external_company = models.ForeignKey(ExternalMaintenanceCompanyModel, null=True)
-        external_responsible = models.CharField(max_length=200)
-        num_external_operators = models.IntegerField(default=0)
-        external_intervention_time_days = models.IntegerField(null=True)
-        external_intervention_time_hours = models.IntegerField(null=True)
-        external_intervention_time_minutes = models.IntegerField(null=True)
-        external_intervention_duration = models.IntegerField(null=True)
+        external_company = models.ForeignKey(ExternalMaintenanceCompanyModel, null=True, blank=True)
+        external_responsible = models.CharField(max_length=200, null=True, blank=True)
+        num_external_operators = models.IntegerField(default=0, null=True, blank=True)
+        external_intervention_time_days = models.IntegerField(null=True, blank=True)
+        external_intervention_time_hours = models.IntegerField(null=True, blank=True)
+        external_intervention_time_minutes = models.IntegerField(null=True, blank=True)
+        external_intervention_duration = models.IntegerField(null=True, blank=True)
 
-        intervention_start_date = models.DateField(null=True) #data inizio manutenzione
-        intervention_start_time = models.TimeField(null=True) #ora inizio manutenzione
-        intervention_completion_date = models.DateField(null=True) #data fine manutenzione
-        intervention_completion_time = models.TimeField(null=True) #ora fine manutenzione
-        machine_down_time_days = models.IntegerField(null=True)
-        machine_down_time_hours = models.IntegerField(null=True)
-        machine_down_time_minutes = models.IntegerField(null=True)
-        machine_down_time = models.IntegerField(null=True)
-        intervention_type = models.ForeignKey(InterventionTypeModel, null=True)
-        component_status =  models.ForeignKey(ComponentStatusModel, null=True)
-        intervention_description = models.CharField(max_length=500)
+        intervention_start_date = models.DateField(null=True, blank=True) #data inizio manutenzione
+        intervention_start_time = models.TimeField(null=True, blank=True) #ora inizio manutenzione
+        intervention_completion_date = models.DateField(null=True, blank=True) #data fine manutenzione
+        intervention_completion_time = models.TimeField(null=True, blank=True) #ora fine manutenzione
+        machine_down_time_days = models.IntegerField(null=True, blank=True)
+        machine_down_time_hours = models.IntegerField(null=True, blank=True)
+        machine_down_time_minutes = models.IntegerField(null=True, blank=True)
+        machine_down_time = models.IntegerField(null=True, blank=True)
+        intervention_type = models.ForeignKey(InterventionTypeModel, null=True, blank=True)
+        component_status =  models.ForeignKey(ComponentStatusModel, null=True, blank=True)
+        intervention_description = models.CharField(max_length=500, null=True, blank=True)
 
 

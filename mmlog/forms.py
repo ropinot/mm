@@ -8,7 +8,7 @@ from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 #         name = forms.CharField(label = "Nome", max_length = 100)
 #         surname = forms.CharField(label = "Cognome", max_length = 100)
 
-class ActivitySheetForm(forms.Form):
+class ActivitySheetForm(forms.ModelForm):
         # MODIFICA DEL WIDGET STANDARD PER I CAMPI DEL DB
         entry_date = forms.CharField(max_length=10, help_text="Data in formato gg-mm-aaaa", label="Data")
         component = forms.CharField(max_length=100, label="Componente")
