@@ -27,26 +27,14 @@
     <!--<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}mmlog/css/mmlog_styles.css">-->
     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/ui.fancytree.css">
 
-    <script type="text/javascript">
-    $(function(){
-      // Create the tree inside the <div id="tree"> element.
-      $("#tree").fancytree({
-                activate: function(event, data){
-                // A node was activated: display its title:
-                var node = data.node;
-                $("#id_component").val(node.title);
-                }
-        })
-    });
-    </script>
-</head>
+    </head>
 <body>
 <div class="row" id="header">
-    <h1 class="box">MMLOG {% block header %}{% endblock %}</h1>
+    <h1 class="box">MMLOG</h1> {% block header %}{% endblock %}
 </div>
 <div class="row" id="body">
         <div class="four fourth" id="form">
-            <p class="round box">{% block content %}{% endblock %}</p>
+            <p class="round box">Content here</p>{% block content %}{% endblock %}
         </div>
 
 </div>

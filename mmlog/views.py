@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from mmlog.forms import ActivitySheetForm
-
+from mmlog.models import ActivitySheetModel
 
 
 def index(request):
@@ -37,4 +37,6 @@ def add_activity_sheet(request):
 
 
 def list_activity_sheet(request):
-        return render(request, 'mmlog/list_activity_sheet.html')
+        activity_sheets = ActivitySheetModel.objects.all()
+        context = {'activity_sheets': activity_sheets}
+        return render(request, 'mmlog/list_activity_sheet.html', context)

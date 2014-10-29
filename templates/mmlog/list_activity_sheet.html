@@ -1,7 +1,16 @@
 {% extends "mmlog/base.html" %}
 
+        {% block header %}
+            {% include 'menubar.html' %}
+        {% endblock %}
+
         {% block form %}
 
-        <h1>Lista delle schede compilate</h1>
+        <table class="info" >
+            <tr><th>Componente</th><th>Stato</th><th>Data inserimento</th></tr>
+            {% for sheet in activity_sheets %}
+                <tr><td>{{ sheet.component }}</td><td>{{sheet.status}}</td><td>{{sheet.entry_date}}</td></tr>
+            {% endfor %}
+        </table>
 
         {% endblock %}

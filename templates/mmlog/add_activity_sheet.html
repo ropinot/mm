@@ -1,5 +1,9 @@
 {% extends "mmlog/base.html" %}
 
+            {% block header %}
+                {% include 'menubar.html' %}
+            {% endblock %}
+
             {% block tree%}
                 <!-- QUESTA PARTE DEVE ESSERE CREATA DINAMICAMENTE
                     DAI DATI DEL DB -->
