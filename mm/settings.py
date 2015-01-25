@@ -90,6 +90,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/mm/static/'
 
 PROJECT_DIR = os.path.dirname(__file__)
 
