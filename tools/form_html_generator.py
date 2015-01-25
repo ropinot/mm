@@ -42,7 +42,10 @@ with open(sys.argv[1], 'r') as f:
                                 new_row = DIV(Class='row')
 
                                 for i in xrange(1, len(token), 2):
-                                        cell = '{{ form.%s.label }}{{ form.%s }}{%% for e in form.%s.errors %%}<p class="red message">{{ e }}</p>{%% endfor %%}' % (token[i], token[i], token[i])
+                                        if token[i] == "$":    # empty cells
+                                                cell = ' '
+                                        else:           # field cells
+                                                cell = '{{ form.%s.label }}{{ form.%s }}{%% for e in form.%s.errors %%}<p class="red message">{{ e }}</p>{%% endfor %%}' % (token[i], token[i], token[i])
                                         new_row <= DIV(cell, Class='{} twelfths'.format(n[token[i+1]]))
 
                                 generated_html.append(new_row)

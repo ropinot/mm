@@ -40,3 +40,8 @@ def list_activity_sheet(request):
         activity_sheets = ActivitySheetModel.objects.all()
         context = {'activity_sheets': activity_sheets}
         return render(request, 'mmlog/list_activity_sheet.html', context)
+
+
+def create_tree(request):
+
+        return render(request, 'mmlog/create_tree.html')
