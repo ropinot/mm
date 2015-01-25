@@ -1,0 +1,69 @@
+{%extends 'mmlog/base.html' %}
+
+        {% block header %}
+            {% include 'menubar.html' %}
+        {% endblock %}
+
+        {% block form %}
+
+        <script type="text/javascript">
+	$(function(){
+		$("#tree").fancytree({
+			extensions: ["menu"],
+			source: {
+				url: "ajax-tree-local.json"
+			},
+			menu: {
+				selector: "#myMenu",
+				position: {my: "center"},
+				create: function(event, data){
+					$.ui.fancytree.debug("Menu create ", data.$menu);
+				},
+				beforeOpen: function(event, data){
+					$.ui.fancytree.debug("Menu beforeOpen ", data.$menu, data.node);
+				},
+				open: function(event, data){
+					$.ui.fancytree.debug("Menu open ", data.$menu, data.node);
+				},
+				focus: function(event, data){
+					$.ui.fancytree.debug("Menu focus ", data.menuId, data.node);
+				},
+				select: function(event, data){
+					alert("Menu select " + data.menuId + ", " + data.node);
+				},
+				close: function(event, data){
+					$.ui.fancytree.debug("Menu close ", data.$menu, data.node);
+				}
+			},
+			activate: function(event, data) {
+//				alert("activate " + data.node);
+			},
+			lazyLoad: function(event, data) {
+				data.result = {url: "ajax-sub2.json"}
+			}
+		});
+		var tree = $("#tree").fancytree("getTree");
+
+		/*
+		 * Event handlers for our little demo interface
+		 */
+
+		$("button#btnResetSearch").click(function(e){
+		}).attr("disabled", true);
+	});
+</script>
+
+        	<!-- Definition of context menu -->
+	<ul id="myMenu" class="contextMenu ui-helper-hidden">
+		<li class="edit"><a href="#edit">Edit</a></li>
+		<li class="cut"><a href="#cut">Cut</a></li>
+		<li class="copy"><a href="#copy">Copy</a></li>
+		<li class="paste"><a href="#paste">Paste</a></li>
+		<li class="ui-state-disabled"><a href="#delete">Delete</a></li>
+		<li>---</li>
+		<li class="quit"><a href="#quit">Quit</a></li>
+		<li><a href="#save"><span class="ui-icon ui-icon-disk"></span>Save</a></li>
+	</ul>
+        <div id="tree">
+	</div>
+        {% endblock %}
