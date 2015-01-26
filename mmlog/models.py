@@ -8,9 +8,9 @@ class ActivityStatusModel(models.Model):
 
 
 class ExternalMaintenanceCompanyModel(models.Model):
-        company = models.CharField(max_length=200)
-        responsible = models.CharField(max_length=200)
-        num_operators = models.IntegerField()
+        company = models.CharField(max_length=200, null=True, blank=True)
+        # responsible = models.CharField(max_length=200, null=True, blank=True)
+        # num_operators = models.IntegerField(null=True, blank=True)
         # intervention_time_days = models.IntegerField()
         # intervention_time_hours = models.IntegerField()
         # intervention_time_minutes = models.IntegerField()

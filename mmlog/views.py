@@ -32,7 +32,7 @@ def add_activity_sheet(request):
                 return render(request, 'mmlog/index.html')
                 # return index(request) #SOSTITUIRE CON REDIRECT???
         else:
-                context = {'title': 'TITOLO DI PROVA', 'form': form}
+                context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form}
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
