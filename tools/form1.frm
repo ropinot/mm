@@ -26,7 +26,7 @@
 ! $ 1 intervention_start_date 2 $ 1 intervention_start_time 2
 ! $ 1 intervention_completion_date 2 $ 1 intervention_completion_time 2
 ! $ 1 machine_down_time_days 1 machine_down_time_hours 1 machine_down_time_minutes 1
-! $ 1 machine_down_time 1
+! $ 1 machine_down_time_duration 1
 ! $ 1 intervention_type 2 $ 1 component_status 2
 ! $ 1 intervention_description 5
 </fieldset>

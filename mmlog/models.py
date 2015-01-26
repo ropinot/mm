@@ -64,7 +64,7 @@ class ActivitySheetModel(models.Model):
         machine_down_time_days = models.IntegerField(null=True, blank=True)
         machine_down_time_hours = models.IntegerField(null=True, blank=True)
         machine_down_time_minutes = models.IntegerField(null=True, blank=True)
-        machine_down_time = models.IntegerField(null=True, blank=True)
+        machine_down_time_duration = models.IntegerField(null=True, blank=True)
         intervention_type = models.ForeignKey(InterventionTypeModel, null=True, blank=True)
         component_status =  models.ForeignKey(ComponentStatusModel, null=True, blank=True)
         intervention_description = models.TextField(max_length=500, null=True, blank=True)

@@ -27,19 +27,19 @@ class ActivitySheetForm(forms.ModelForm):
         external_company = forms.ModelChoiceField(ExternalMaintenanceCompanyModel.objects.all(), label="Azienda", required=False)
         external_responsible = forms.CharField(max_length=200, label="Responsabile", required=False)
         num_external_operators = forms.CharField(widget=w.NumberInput, label="N. Operatori", required=False)
-        external_intervention_time_days = forms.CharField(max_length = 4, label="Giorni", required=False)
-        external_intervention_time_hours = forms.CharField(max_length = 4, label="Ore", required=False)
-        external_intervention_time_minutes = forms.CharField(max_length = 4, label="Minuti", required=False)
-        external_intervention_duration = forms.CharField(max_length = 4, label="Totale (minuti)", required=False)
+        external_intervention_time_days = forms.CharField(max_length = 4, label="Giorni", required=False, initial=0)
+        external_intervention_time_hours = forms.CharField(max_length = 4, label="Ore", required=False, initial=0)
+        external_intervention_time_minutes = forms.CharField(max_length = 4, label="Minuti", required=False, initial=0)
+        external_intervention_duration = forms.CharField(max_length = 4, label="Totale (minuti)", required=False, initial=0)
 
         intervention_start_date = forms.CharField(label="Data inizio intervento", required=False) #data inizio manutenzione
         intervention_start_time = forms.CharField(label="Ora inizio intervento", required=False) #ora inizio manutenzione
         intervention_completion_date = forms.CharField(label="Data fine intervento", required=False) #data fine manutenzione
         intervention_completion_time = forms.CharField(label="Ora fine intervento", required=False) #ora fine manutenzione
-        machine_down_time_days = forms.CharField(label="Giorni", required=False)
-        machine_down_time_hours = forms.CharField(label="Ore", required=False)
-        machine_down_time_minutes = forms.CharField(label="Minuti", required=False)
-        machine_down_time = forms.CharField(label="Totale (minuti)", required=False)
+        machine_down_time_days = forms.CharField(label="Giorni", required=False, initial=0)
+        machine_down_time_hours = forms.CharField(label="Ore", required=False, initial=0)
+        machine_down_time_minutes = forms.CharField(label="Minuti", required=False, initial=0)
+        machine_down_time_duration = forms.CharField(label="Totale (minuti)", required=False, initial=0)
         intervention_type = forms.ModelChoiceField(InterventionTypeModel.objects.all(), label="Tipo intervento", required=False)
         component_status =  forms.ModelChoiceField(ComponentStatusModel.objects.all(), label="Stato componente", required=False)
         intervention_description = forms.CharField(widget=forms.Textarea, label="Descrizione dell'intervento", required=False)
