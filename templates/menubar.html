@@ -1,4 +1,18 @@
-<a class="blue button" href="/mmmain/index">Home</a>
+<!--<a class="blue button" href="/mmmain/index">Home</a>
 <a class="blue button" href="/mmlog/add_activity_sheet">Nuovo intervento</a>
 <a class="blue button" href="/mmlog/list_activity_sheet">Elenco interventi</a>
 <!--<a class="blue button" href="http://www.jstree.com/demo/">Crea scomposizione</a>  -->
+
+<nav role="navigation" class="nav gap-top" title="MM Menu">
+  <ul role=""menubar">
+    <li><a href="/mmmain/index">Home</a></li>
+    <li><a href="/mmlog/add_activity_sheet">Nuovo intervento</a></li>
+    <li role="menu">
+        <button>Lista interventi</button>
+      <ul>
+        <li><a href="/mmlog/list_activity_by_date">Per data</a>
+        <li><a href="/mmlog/list_activity_by_component">Per componente</a>
+      </ul>
+    </li>
+  </ul>
+</nav>
