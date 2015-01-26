@@ -50,10 +50,12 @@ with open(sys.argv[1], 'r') as f:
 
                                 generated_html.append(new_row)
 
+                        elif token[0][0] == '<':    # HTML TAGS
+                                generated_html.append(row)
                         elif token[0] == '#':    # # for comments
                                 continue
                         else:
-                                print "Carattere non riconosciuto"
+                                print "Carattere non riconosciuto", token, " ", row
                                 sys.exit(1)
 
 content = ''
