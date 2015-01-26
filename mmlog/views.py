@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from mmlog.forms import ActivitySheetForm
 from mmlog.models import ActivitySheetModel
@@ -29,11 +29,23 @@ def add_activity_sheet(request):
         form = ActivitySheetForm(request.POST or None)
         if form.is_valid():
                 form.save()
-                return render(request, 'mmlog/index.html')
+                return render(request, 'mmmain/index.html')
                 # return index(request) #SOSTITUIRE CON REDIRECT???
         else:
                 context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form}
                 return render(request, 'mmlog/add_activity_sheet.html', context)
+
+
+def update_activity(request, pk=None):
+    obj = get_object_or_404(ActivitySheetModel, pk=13)
+    form = ActivitySheetForm(request.POST or None, instance=obj)
+
+    if request.method == 'POST':
+        if form.is_valid():
+           form.save()
+           return redirect('mmmain/index.html')
+    return render(request, 'mmlog/add_activity_sheet.html', {'form': form})
+
 
 
 def list_activity_sheets_by_date(request):

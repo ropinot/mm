@@ -7,9 +7,9 @@
         {% block form %}
 
         <table class="info" >
-            <tr><th>Data inserimento</th><th>Componente</th><th>Stato</th><th>Responsabile</th></tr>
+            <tr><th>Data inserimento</th><th>Componente</th><th>Stato</th><th>Responsabile</th><th>&nbsp;</th></tr>
             {% for sheet in activity_sheets %}
-                <tr><td>{{sheet.entry_date}}</td><td>{{ sheet.component }}</td><td>{{sheet.status}}</td><td>{{sheet.internal_responsible}}</td></tr>
+                <tr><td>{{sheet.entry_date}}</td><td>{{ sheet.component }}</td><td>{{sheet.status}}</td><td>{{sheet.internal_responsible}}</td><td><a href="/mmlog/update_activity">Modifica</a></td></tr>
             {% endfor %}
         </table>
 
