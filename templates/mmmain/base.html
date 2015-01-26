@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -30,22 +29,24 @@
 
     </head>
 <body>
-<div class="row" id="header">
-    <h1 class="box">MMLOG</h1> {% block header %}{% endblock %}
-</div>
-<div class="row" id="body">
-        <div class="four fourth" id="form">
-            <p class="round box">Content here</p>{% block content %}{% endblock %}
-        </div>
 
-</div>
-<div class="row" id="statusbar">
-    <h6 class="round box">Status bar</h6>
-</div>
-<div class="row" id="footer">
-    <h1 class="round box">Footer</h1>
-</div>
+    <div class="row" id="header">
+        <h1 class="box">MMLOG</h1> {% block header %}{% endblock %}
+    </div>
 
+    <div class="row" id="body">
+            <div class="four fourth" id="form">
+                <p class="box">Content here</p>{% block content %}{% endblock %}
+            </div>
+    </div>
+
+    <div class="row" id="statusbar">
+        <h6 class="box">Status bar</h6>
+    </div>
+
+    <div class="row" id="footer">
+        <h1 class="box">Footer</h1>
+    </div>
 
 </body>
 </html>

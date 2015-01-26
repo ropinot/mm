@@ -37,9 +37,11 @@ class ComponentStatusModel(models.Model):
 class ActivitySheetModel(models.Model):
         entry_date = models.DateField(null=True, blank=True) #data segnalazione
         entry_time = models.TimeField(null=True, blank=True) #ora segnalazione
-        component = models.CharField(max_length=20, null=True, blank=True)
-        description = models.CharField(max_length=200, null=True, blank=True)
+        requested_by = models.CharField(max_length=20, null=True, blank=True)  # TODO: Eredita dall'ID dello user?
         status = models.ForeignKey(ActivityStatusModel, null=True, blank=True)
+        component = models.CharField(max_length=20, null=True, blank=True)
+        # description = models.CharField(max_length=200, null=True, blank=True)
+
         internal_responsible = models.CharField(max_length=200, null=True, blank=True)
         num_internal_operators = models.IntegerField(default=0, null=True, blank=True)
         internal_intervention_time_days = models.IntegerField(null=True, blank=True)
@@ -65,6 +67,6 @@ class ActivitySheetModel(models.Model):
         machine_down_time = models.IntegerField(null=True, blank=True)
         intervention_type = models.ForeignKey(InterventionTypeModel, null=True, blank=True)
         component_status =  models.ForeignKey(ComponentStatusModel, null=True, blank=True)
-        intervention_description = models.CharField(max_length=500, null=True, blank=True)
+        intervention_description = models.TextField(max_length=500, null=True, blank=True)
 
 

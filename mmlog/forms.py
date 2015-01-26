@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import widgets as w
 from mmlog.models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
@@ -10,14 +11,39 @@ from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 
 class ActivitySheetForm(forms.ModelForm):
         # MODIFICA DEL WIDGET STANDARD PER I CAMPI DEL DB
-        entry_date = forms.CharField(max_length=10, help_text="Data in formato gg-mm-aaaa", label="Data")
+        entry_date = forms.DateField(label="Data segnalazione")
+        entry_time = forms.CharField(label="Ora segnalazione")
         component = forms.CharField(max_length=100, label="Componente")
-        description = forms.CharField(max_length=100, label="Descrizione")
-        status = forms.ModelChoiceField(ActivityStatusModel.objects.all())
+        requested_by = forms.CharField(max_length=20, label="Richiedente")
+        description = forms.CharField(max_length=100, label="Descrizione dell'intervento")
+        status = forms.ModelChoiceField(ActivityStatusModel.objects.all(), label="Stato")
+        internal_responsible = forms.CharField(max_length=20, label="Responsabile")
+        num_internal_operators = forms.CharField(widget=w.NumberInput, label="N. Operatori")
         internal_intervention_time_days = forms.CharField(max_length=4, label="Giorni", initial=0)
         internal_intervention_time_hours = forms.CharField(max_length=4, label="Ore", initial=0)
         internal_intervention_time_minutes = forms.CharField(max_length=4, label="Minuti", initial=0)
         internal_intervention_duration = forms.CharField(max_length=4, label="Totale (minuti)", initial=0)
+
+        external_company = forms.ModelChoiceField(ExternalMaintenanceCompanyModel.objects.all(), label="Azienda")
+        external_responsible = forms.CharField(max_length=200, label="Responsabile")
+        num_external_operators = forms.CharField(widget=w.NumberInput, label="N. Operatori")
+        external_intervention_time_days = forms.CharField(max_length = 4, label="Giorni")
+        external_intervention_time_hours = forms.CharField(max_length = 4, label="Ore")
+        external_intervention_time_minutes = forms.CharField(max_length = 4, label="Minuti")
+        external_intervention_duration = forms.CharField(max_length = 4, label="Totale (minuti)")
+
+        intervention_start_date = forms.CharField(label="Data inizio intervento") #data inizio manutenzione
+        intervention_start_time = forms.CharField(label="Ora inizio intervento") #ora inizio manutenzione
+        intervention_completion_date = forms.CharField(label="Data fine intervento") #data fine manutenzione
+        intervention_completion_time = forms.CharField(label="Ora fine intervento") #ora fine manutenzione
+        machine_down_time_days = forms.CharField(label="Giorni")
+        machine_down_time_hours = forms.CharField(label="Ore")
+        machine_down_time_minutes = forms.CharField(label="Minuti")
+        machine_down_time = forms.CharField(label="Totale (minuti)")
+        intervention_type = forms.ModelChoiceField(InterventionTypeModel.objects.all(), label="Tipo intervento")
+        component_status =  forms.ModelChoiceField(ComponentStatusModel.objects.all(), label="Stato componente")
+        intervention_description = forms.CharField(widget=forms.Textarea, label="Descrizione dell'intervento")
+
 
         class Meta:
                 # MODELLO ASSOCIATO
