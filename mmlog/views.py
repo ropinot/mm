@@ -36,10 +36,10 @@ def add_activity_sheet(request):
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
-def list_activity_sheet(request):
-        activity_sheets = ActivitySheetModel.objects.all()
+def list_activity_sheets_by_date(request):
+        activity_sheets = ActivitySheetModel.objects.all().order_by('entry_date')
         context = {'activity_sheets': activity_sheets}
-        return render(request, 'mmlog/list_activity_sheet.html', context)
+        return render(request, 'mmlog/list_activity_sheets_by_date.html', context)
 
 
 def create_tree(request):
