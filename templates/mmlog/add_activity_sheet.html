@@ -34,7 +34,8 @@
 
             {% block form %}
                 <div id="selected_node"></div>
-                <form action="/mmlog/add_activity_sheet/" method="POST">
+                <!-- <form action="/mmlog/add_activity_sheet/" method="POST">-->
+                <form action="{{ form_action}}" method="POST">
                     {% csrf_token %}
                     <!-- FORM START -->
 <div>

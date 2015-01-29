@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from mmlog.forms import ActivitySheetForm
 from mmlog.models import ActivitySheetModel
@@ -32,20 +33,26 @@ def add_activity_sheet(request):
                 return render(request, 'mmmain/index.html')
                 # return index(request) #SOSTITUIRE CON REDIRECT???
         else:
-                context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form}
+                context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form, 'form_action': reverse_lazy('add_activity_sheet')}
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
-def update_activity(request, pk=None):
-    obj = get_object_or_404(ActivitySheetModel, pk=13)
-    form = ActivitySheetForm(request.POST or None, instance=obj)
+def update_activity(request, id=13):
 
-    if request.method == 'POST':
-        if form.is_valid():
-           form.save()
-           return redirect('mmmain/index.html')
-    return render(request, 'mmlog/add_activity_sheet.html', {'form': form})
+        if request.method == 'POST':
 
+                obj = get_object_or_404(ActivitySheetModel, id=id)
+                form = ActivitySheetForm(request.POST or None, instance=obj)
+                if form.is_valid():
+                        form.save()
+                        return render(request, 'mmmain/index.html')
+                else:
+                        print "FORM NOT VALID"
+        else:
+
+                obj = get_object_or_404(ActivitySheetModel, id=id)  # TODO chiave della scheda
+                form = ActivitySheetForm(instance=obj)
+                return render(request, 'mmlog/add_activity_sheet.html', {'form': form, 'form_action': reverse_lazy('update_activity')})
 
 
 def list_activity_sheets_by_date(request):

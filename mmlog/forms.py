@@ -11,7 +11,7 @@ from mmlog.models import *
 
 class ActivitySheetForm(forms.ModelForm):
         # MODIFICA DEL WIDGET STANDARD PER I CAMPI DEL DB
-        pk = forms.CharField(widget=w.HiddenInput, required=False)
+        # id = forms.CharField(widget=w.HiddenInput, required=False)
         entry_date = forms.DateField(label="Data segnalazione")
         entry_time = forms.TimeField(label="Ora segnalazione")
         component = forms.CharField(max_length=100, label="Componente")
@@ -49,6 +49,7 @@ class ActivitySheetForm(forms.ModelForm):
         class Meta:
                 # MODELLO ASSOCIATO
                 model = ActivitySheetModel
+                fields = '__all__'
 
                 # LISTA CAMPI VISIBILI NEL FORM
                 # fields =  ['entry_date', 'intervention_type']
