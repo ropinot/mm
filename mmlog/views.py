@@ -47,8 +47,8 @@ def update_activity(request, id=None):
                 if form.is_valid():
                         a=form.save()
 
-                        for v in a.__dict__:
-                                print v, ": ", a.__dict__[v]
+                        # for v in a.__dict__:
+                        #         print v, ": ", a.__dict__[v]
                         return render(request, 'mmmain/index.html')
                 else:
                         context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form, 'form_action': '/mmlog/update_activity/'+id}
