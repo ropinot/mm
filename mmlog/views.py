@@ -37,22 +37,27 @@ def add_activity_sheet(request):
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
-def update_activity(request, id=13):
+def update_activity(request, id=None):
+
+        obj = get_object_or_404(ActivitySheetModel, id=id)
 
         if request.method == 'POST':
 
-                obj = get_object_or_404(ActivitySheetModel, id=id)
                 form = ActivitySheetForm(request.POST or None, instance=obj)
                 if form.is_valid():
-                        form.save()
+                        a=form.save()
+
+                        for v in a.__dict__:
+                                print v, ": ", a.__dict__[v]
                         return render(request, 'mmmain/index.html')
                 else:
-                        print "FORM NOT VALID"
+                        context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form, 'form_action': '/mmlog/update_activity/'+id}
+                        return render(request, 'mmlog/add_activity_sheet.html', context)
+
         else:
 
-                obj = get_object_or_404(ActivitySheetModel, id=id)  # TODO chiave della scheda
                 form = ActivitySheetForm(instance=obj)
-                return render(request, 'mmlog/add_activity_sheet.html', {'form': form, 'form_action': reverse_lazy('update_activity')})
+                return render(request, 'mmlog/add_activity_sheet.html', {'form': form, 'form_action': '/mmlog/update_activity/'+id})
 
 
 def list_activity_sheets_by_date(request):
