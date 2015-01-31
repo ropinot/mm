@@ -9,6 +9,8 @@
                 <form action="{{ form_action}}" method="POST">
                     {% csrf_token %}
                     <!-- FORM START -->
+<fieldset><legend>Anagrafica azienda</legend>
+<div class="row"><div class="two twelfths"> </div><div class="two twelfths">{{ form.company_name.label }}{{ form.company_name }}{% for e in form.company_name.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div><div class="row"><div class="two twelfths"> </div><div class="two twelfths">{{ form.fiscal_code.label }}{{ form.fiscal_code }}{% for e in form.fiscal_code.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div><div class="row"><div class="two twelfths"> </div><div class="two twelfths">{{ form.address.label }}{{ form.address }}{% for e in form.address.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div><div class="row"><div class="two twelfths"> </div><div class="two twelfths">{{ form.status.label }}{{ form.status }}{% for e in form.status.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div><div class="row"><div class="two twelfths"> </div><div class="two twelfths">{{ form.registration_date.label }}{{ form.registration_date }}{% for e in form.registration_date.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div></fieldset>
 
                     <!-- FORM END -->
                     <input type="submit" value="Submit" />
