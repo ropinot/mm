@@ -45,7 +45,7 @@ def update_activity(request, id=None):
 
                 form = ActivitySheetForm(request.POST or None, instance=obj)
                 if form.is_valid():
-                        a=form.save()
+                        form.save()
 
                         # for v in a.__dict__:
                         #         print v, ": ", a.__dict__[v]
