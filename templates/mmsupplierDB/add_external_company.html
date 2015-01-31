@@ -1,0 +1,16 @@
+{% extends "base_1_col.html" %}
+
+        {% block header %}
+                {% include 'menubar.html' %}
+        {% endblock %}
+
+        {% block content %}
+                <div id="selected_node"></div>
+                <form action="{{ form_action}}" method="POST">
+                    {% csrf_token %}
+                    <!-- FORM START -->
+
+                    <!-- FORM END -->
+                    <input type="submit" value="Submit" />
+                </form>
+        {% endblock %}

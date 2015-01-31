@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     url(r'^$', include('mmmain.urls')),
     url(r'^mmlog/', include('mmlog.urls')),
     url(r'^mmmain/', include('mmmain.urls')),
+    url(r'^mmsupplierDB/', include('mmsupplierDB.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
     # AGGIUNGERE UN URL PER GESTIRE LE RICHIESTE NON VALIDE
 )
