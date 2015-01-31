@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import widgets as w
 from mmlog.models import *
+from mmsupplierDB.models import *
 
 import time
 # from crispy_forms.helper import FormHelper
