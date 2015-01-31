@@ -1,6 +1,8 @@
 from django import forms
 from django.forms import widgets as w
 from mmlog.models import *
+
+import time
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 
@@ -12,12 +14,13 @@ from mmlog.models import *
 class ActivitySheetForm(forms.ModelForm):
         # MODIFICA DEL WIDGET STANDARD PER I CAMPI DEL DB
         # id = forms.CharField(widget=w.HiddenInput, required=False)
-        entry_date = forms.DateField(label="Data segnalazione")
-        entry_time = forms.TimeField(label="Ora segnalazione")
+
+        entry_date = forms.DateField(label="Data segnalazione", initial=time.strftime("%d/%m/%Y"))
+        entry_time = forms.TimeField(label="Ora segnalazione", initial=time.strftime("%H:%M"))
         component = forms.CharField(max_length=100, label="Componente")
         requested_by = forms.CharField(max_length=20, label="Richiedente")
         # description = forms.CharField(max_length=100, label="Descrizione dell'intervento")
-        status = forms.ModelChoiceField(ActivityStatusModel.objects.all(), label="Stato")
+        status = forms.ModelChoiceField(ActivityStatusModel.objects.all(), label="Stato", initial=0)
         internal_responsible = forms.CharField(max_length=20, label="Responsabile")
         num_internal_operators = forms.CharField(widget=w.NumberInput, label="N. Operatori", initial=0)
         internal_intervention_time_days = forms.CharField(max_length=4, label="Giorni", initial=0, required=False)
