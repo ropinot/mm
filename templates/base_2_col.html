@@ -58,26 +58,40 @@ div#body
     margin-top:110px;
 }
 
+div.cb  /*classe per restringere il corpo della pagina*/
+    {
+    width:90%;
+    margin:auto;
+}
+
 </style>
 </head>
 <body>
 <div class="row" id="header">
-    <h1 class="box">MMLOG</h1>{% block header %}{% endblock %}
+
+        <h1 class="box">MMLOG</h1>{% block header %}{% endblock %}
+
 </div>
+
 <div class="row" id="body">
-        <div class="one fourth" id="tree">
-            <p class="round box">Secondary Column{% block tree %}{% endblock %}</p>
-        </div>
-        <div class="three fourth" id="form">
-            <p class="round box">Content Here {% block form %}{% endblock %}</p>
+        <div class="cb">
+            <div class="four twelfth" id="tree">
+                <p class="round box">Secondary Column{% block tree %}{% endblock %}</p>
+            </div>
+            <div class="eight twelfth" id="main_content">
+                <p class="round box">Content Here {% block content %}{% endblock %}</p>
+            </div>
         </div>
 
 </div>
 <div class="row" id="statusbar">
-    <h6 class="round box">Status bar</h6>
+    <div class="cb">
+        <h6 class="box">Status bar</h6>
+    </div>
 </div>
+
 <div class="row" id="footer">
-    <h1 class="round box">Footer</h1>
+    <h1 class="box">Footer</h1>
 </div>
 
 </body>

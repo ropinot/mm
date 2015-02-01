@@ -46,21 +46,32 @@ div#body
     margin-top:110px;
 }
 
+div.cb  /*classe per restringere il corpo della pagina*/
+    {
+    width:90%;
+    margin:auto;
+}
 </style>
 <body>
 
     <div class="row" id="header">
-        <h1 class="box">MMLOG</h1> {% block header %}{% endblock %}
+
+            <h1 class="box">MMLOG</h1> {% block header %}{% endblock %}
+
     </div>
 
     <div class="row" id="body">
-            <div class="four fourth" id="form">
-                <p class="box">Content here</p>{% block content %}{% endblock %}
+            <div class="cb">
+                <div id="main_content">
+                    <p class="box">Content here</p>{% block content %}{% endblock %}
+                </div>
             </div>
     </div>
 
     <div class="row" id="statusbar">
-        <h6 class="box">Status bar</h6>
+        <div class="cb">
+            <h6 class="box">Status bar</h6>{% block statusbar%}{% endblock %}
+        </div>
     </div>
 
     <div class="row" id="footer">
