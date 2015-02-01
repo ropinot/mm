@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'crispy_forms',
     'mmlog',
     'mmmain',
-    'mmsupplierDB'
+    'mmsupplierDB',
+    'mmreport',
 )
 
 MIDDLEWARE_CLASSES = (

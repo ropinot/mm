@@ -1,22 +1,28 @@
-<!--<a class="blue button" href="/mmmain/index">Home</a>
-<a class="blue button" href="/mmlog/add_activity_sheet">Nuovo intervento</a>
-<a class="blue button" href="/mmlog/list_activity_sheet">Elenco interventi</a>
-<!--<a class="blue button" href="http://www.jstree.com/demo/">Crea scomposizione</a>  -->
-
 <nav role="navigation" class="nav gap-top" title="MM Menu">
   <ul role=""menubar">
     <li><a href="/mmmain/index">Home</a></li>
-    <li><a href="/mmlog/add_activity_sheet">Nuovo intervento</a></li>
-    <li><a href="/mmlog/list_activity_sheets_by_date">Lista interventi</a></li>
-    <li><a href="/mmsupplierDB/add_external_company">Anagrafica</a></li>
-    <li><a href="/mmreport/index">Report</a></li>
-    <!--<li role="menu">
-        <button>Lista interventi</button>
-      <ul>
+    <li role="menu">
+        <button>Gestione interventi</button>
+            <ul>
+                <li role="menu">
+                    <button>Nuovo intervento</button>
+                        <ul>
+                            <li><a href="/mmlog/add_activity_sheet/preventiva">Preventiva</a></li>
+                            <li><a href="/mmlog/add_activity_sheet/correttiva">Correttiva</a></li>
+                            <li><a href="/mmlog/add_activity_sheet/ispettiva">Ispettiva</a></li>
+                        </ul>
+                </li>
+                <li><a href="/mmlog/list_activity_sheets_by_date">Elenco interventi</a></li>
+            </ul>
+    </li>
+    <li role="menu">
+        <button>Anagrafica aziende</button>
+            <ul>
+                <li><a href="/mmsupplierDB/add_external_company">Inserisci nuova</a></li>
+                <li><a href="/mmsupplierDB/list_external_company">Elenco</a></li>
+            </ul>
+    </li>
 
-        <li><a href="/mmlog/list_activity_sheets_by_component">Per componente</a></li>
-      </ul>
-
-    </li> -->
+    <li><a href="/mmreport">Report</a></li>
   </ul>
 </nav>
