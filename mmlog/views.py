@@ -33,7 +33,7 @@ def add_activity_sheet(request):
                 return render(request, 'mmmain/index.html')
                 # return index(request) #SOSTITUIRE CON REDIRECT???
         else:
-                context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form, 'form_action': reverse_lazy('add_activity_sheet')}
+                context = {'title': '', 'form': form, 'form_action': reverse_lazy('add_activity_sheet')}
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
@@ -51,7 +51,7 @@ def update_activity(request, id=None):
                         #         print v, ": ", a.__dict__[v]
                         return render(request, 'mmmain/index.html')
                 else:
-                        context = {'title': 'ERRORE NEL SALVATAGGIO', 'form': form, 'form_action': '/mmlog/update_activity/'+id}
+                        context = {'title': '', 'form': form, 'form_action': '/mmlog/update_activity/'+id}
                         return render(request, 'mmlog/add_activity_sheet.html', context)
 
         else:

@@ -46,6 +46,7 @@
                     {% csrf_token %}
                     <!-- FORM START -->
 <div>
+<h6 class="quicksand"><b>Scheda manutenzione preventiva</b></h6>
   <fieldset><legend>Dati intervento</legend>
 <div class="row"><div class="one twelfths"> </div><div class="two twelfths">{{ form.entry_date.label }}{{ form.entry_date }}{% for e in form.entry_date.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div><div class="two twelfths">{{ form.entry_time.label }}{{ form.entry_time }}{% for e in form.entry_time.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div><div class="row"><div class="one twelfths"> </div><div class="three twelfths">{{ form.component.label }}{{ form.component }}{% for e in form.component.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div><div class="one twelfths"> </div><div class="two twelfths">{{ form.requested_by.label }}{{ form.requested_by }}{% for e in form.requested_by.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div><div class="row"><div class="one twelfths"> </div><div class="two twelfths">{{ form.status.label }}{{ form.status }}{% for e in form.status.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div></fieldset>
   <br/>
