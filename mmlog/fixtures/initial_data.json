@@ -58,6 +58,18 @@
     "fields": {
       "component_status": "Inutilizzabile"
     }
+  },
+  {
+    "model": "mmsupplierDB.ExternalCompanyStatusModel",
+    "fields": {
+      "status": "Attivo"
+    }
+  },
+  {
+    "model": "mmsupplierDB.ExternalCompanyStatusModel",
+    "fields": {
+      "status": "Non attivo"
+    }
   }
 ]
 
