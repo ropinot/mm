@@ -37,10 +37,10 @@ class ActivitySheetForm(forms.ModelForm):
         external_intervention_time_minutes = forms.CharField(max_length = 4, label="Minuti", required=False, initial=0)
         external_intervention_duration = forms.CharField(max_length = 4, label="Totale (minuti)", required=False, initial=0)
 
-        intervention_start_date = forms.DateField(label="Data inizio intervento", required=False) #data inizio manutenzione
-        intervention_start_time = forms.TimeField(label="Ora inizio intervento", required=False) #ora inizio manutenzione
-        intervention_completion_date = forms.DateField(label="Data fine intervento", required=False) #data fine manutenzione
-        intervention_completion_time = forms.TimeField(label="Ora fine intervento", required=False) #ora fine manutenzione
+        intervention_start_date = forms.DateField(label="Data inizio", required=False) #data inizio manutenzione
+        intervention_start_time = forms.TimeField(label="Ora inizio", required=False) #ora inizio manutenzione
+        intervention_completion_date = forms.DateField(label="Data fine", required=False) #data fine manutenzione
+        intervention_completion_time = forms.TimeField(label="Ora fine", required=False) #ora fine manutenzione
         machine_down_time_days = forms.CharField(label="Giorni", required=False, initial=0)
         machine_down_time_hours = forms.CharField(label="Ore", required=False, initial=0)
         machine_down_time_minutes = forms.CharField(label="Minuti", required=False, initial=0)
