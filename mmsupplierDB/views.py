@@ -13,5 +13,8 @@ def add_external_company(request):
         else:
                 return render(request, 'mmsupplierDB/add_external_company.html', {'form': form})
 
-def list_external_company(request):
-        return HttpResponse("<h2>Funzionalita non ancora implementata</h2><br><a href='/mmmain'>Torna a Home</a>")
+def list_external_companies(request):
+        # return HttpResponse("<h2>Funzionalita non ancora implementata</h2><br><a href='/mmmain'>Torna a Home</a>")
+        companies = ExternalMaintenanceCompanyModel.objects.all()
+        context = {'companies': companies}
+        return render(request, 'mmsupplierDB/list_companies.html', context)

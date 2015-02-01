@@ -1,0 +1,39 @@
+{% extends "base_1_col.html" %}
+
+        {% block header %}
+            {% include 'menubar.html' %}
+        <script>
+            $(document).ready(function() {
+            $('#company_list').DataTable();
+            } );
+        </script>
+        {% endblock %}
+
+        {% block content %}
+
+        <table class="display" id="company_list">
+            <thead>
+                <tr><th>ID</th>
+                    <th>Data inserimento</th>
+                    <th>Azienda</th>
+                    <th>P.IVA</th>
+                    <th>Stato</th>
+                    <th>Indirizzo</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for company in companies %}
+                <tr><td>{{ company.id }}</td>
+                    <td>{{ company.registration_date }}</td>
+                    <td>{{ company.company_name }}</td>
+                    <td>{{ company.fiscal_code }}</td>
+                    <td>{{ company.status}}</td>
+                    <td>{{ company.address}}</td>
+                    <td><a href="/mmsupplierDB/update_company/{{company.id}}">Modifica</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% endblock %}
