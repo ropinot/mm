@@ -49,9 +49,11 @@ with open(sys.argv[1], 'r') as f:
                                         new_row <= DIV(cell, Class='{} twelfths'.format(n[token[i+1]]))
 
                                 generated_html.append(new_row)
+                                generated_html.append("\n")
 
                         elif token[0][0] == '<':    # HTML TAGS
                                 generated_html.append(row)
+                                generated_html.append("\n")
                         elif token[0] == '#':    # # for comments
                                 continue
                         else:

@@ -1,4 +1,5 @@
 # form di input per activity sheet
+<h6 class="quicksand"><b>Scheda manutenzione preventiva</b></h6>
 <fieldset><legend>Dati intervento</legend>
 ! $ 1 entry_date 2 entry_time 2
 ! $ 1 component 3 $ 1 requested_by 2
@@ -27,6 +28,8 @@
 ! $ 1 intervention_completion_date 2 $ 1 intervention_completion_time 2
 ! $ 1 machine_down_time_days 1 machine_down_time_hours 1 machine_down_time_minutes 1
 ! $ 1 machine_down_time_duration 1
+    <fieldset><legend>Manutenzione preventiva</legend>
 ! $ 1 intervention_type 2 $ 1 component_status 2
 ! $ 1 intervention_description 5
+    </fieldset>
 </fieldset>
