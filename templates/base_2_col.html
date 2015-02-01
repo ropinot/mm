@@ -76,22 +76,22 @@ div.cb  /*classe per restringere il corpo della pagina*/
 <div class="row" id="body">
         <div class="cb">
             <div class="four twelfth" id="tree">
-                <p class="round box">Secondary Column{% block tree %}{% endblock %}</p>
+                <p class="round box">{% block tree %}{% endblock %}</p>
             </div>
             <div class="eight twelfth" id="main_content">
-                <p class="round box">Content Here {% block content %}{% endblock %}</p>
+                <p class="round box">{% block content %}{% endblock %}</p>
             </div>
         </div>
 
 </div>
 <div class="row" id="statusbar">
     <div class="cb">
-        <h6 class="box">Status bar</h6>
+        <h6 class=""></h6>
     </div>
 </div>
 
 <div class="row" id="footer">
-    <h1 class="box">Footer</h1>
+    <h1 class="box"></h1>
 </div>
 
 </body>
