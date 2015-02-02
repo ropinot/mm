@@ -70,8 +70,82 @@
     "fields": {
       "status": "Non attivo"
     }
+  },
+    {
+    "model": "mmlog.FaultTypeModel",
+    "fields": {
+      "status": "Civile"
+    }
+  },
+      {
+    "model": "mmlog.FaultTypeModel",
+    "fields": {
+      "status": "Elettrico"
+    }
+  },
+      {
+    "model": "mmlog.FaultTypeModel",
+    "fields": {
+      "status": "Meccanica"
+    }
+  },
+      {
+    "model": "mmlog.FaultTypeModel",
+    "fields": {
+      "status": "Sensoristica"
+    }
+  },
+      {
+    "model": "mmlog.FaultCauseModel",
+    "fields": {
+      "status": "Cause esterne"
+    }
+  },
+      {
+    "model": "mmlog.FaultCauseModel",
+    "fields": {
+      "status": "Errata regolazione"
+    }
+  },
+      {
+    "model": "mmlog.FaultCauseModel",
+    "fields": {
+      "status": "Rottura"
+    }
+  },
+      {
+    "model": "mmlog.FaultCauseModel",
+    "fields": {
+      "status": "Usura"
+    }
+  },
+      {
+    "model": "mmlog.FaultEffectModel",
+    "fields": {
+      "status": "Mancato rispetto limiti"
+    }
+  },
+      {
+    "model": "mmlog.FaultEffectModel",
+    "fields": {
+      "status": "Fermo produttivo"
+    }
+  },
+      {
+    "model": "mmlog.FaultEffectModel",
+    "fields": {
+      "status": "Funzionamento parziale"
+    }
+  },
+      {
+    "model": "mmlog.FaultEffectModel",
+    "fields": {
+      "status": "Nessuna conseguenza"
+    }
   }
 ]
+
+
 
 
 

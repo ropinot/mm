@@ -45,10 +45,19 @@ class ActivitySheetForm(forms.ModelForm):
         machine_down_time_hours = forms.CharField(label="Ore", required=False, initial=0)
         machine_down_time_minutes = forms.CharField(label="Minuti", required=False, initial=0)
         machine_down_time_duration = forms.CharField(label="Totale (minuti)", required=False, initial=0)
-        intervention_type = forms.ModelChoiceField(InterventionTypeModel.objects.all(), label="Tipo intervento", required=False)
-        component_status =  forms.ModelChoiceField(ComponentStatusModel.objects.all(), label="Stato componente", required=False)
+
         intervention_description = forms.CharField(widget=forms.Textarea, label="Descrizione dell'intervento", required=False)
 
+        # Intervento preventiva
+        intervention_type = forms.ModelChoiceField(InterventionTypeModel.objects.all(), label="Tipo intervento", required=False)
+        component_status =  forms.ModelChoiceField(ComponentStatusModel.objects.all(), label="Stato componente", required=False)
+
+
+        # Intervento correttiva
+        fault_type = forms.ModelChoiceField(FaultTypeModel.objects.all(), label="Tipo di guasto", required=False)
+        fault_cause = forms.ModelChoiceField(FaultCauseModel.objects.all(), label="Causa di guasto", required=False)
+        fault_effect = forms.ModelChoiceField(FaultEffectModel.objects.all(), label="Effetto del guasto", required=False)
+        fault_description = forms.CharField(widget=forms.Textarea, label="Descrizione del guasto", required=False)
 
         class Meta:
                 # MODELLO ASSOCIATO

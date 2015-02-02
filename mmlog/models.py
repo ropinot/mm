@@ -36,6 +36,27 @@ class ComponentStatusModel(models.Model):
                 return self.component_status
 
 
+class FaultTypeModel(models.Model):
+        fault_type = models.CharField(max_length = 200)
+
+        def __unicode__(self):
+                return self.fault_type
+
+
+class FaultCauseModel(models.Model):
+        fault_cause = models.CharField(max_length = 200)
+
+        def __unicode__(self):
+                return self.fault_cause
+
+
+class FaultEffectModel(models.Model):
+        fault_effect = models.CharField(max_length = 200)
+
+        def __unicode__(self):
+                return self.fault_effect
+
+
 class ActivitySheetModel(models.Model):
         entry_date = models.DateField(null=True, blank=True) #data segnalazione
         entry_time = models.TimeField(null=True, blank=True) #ora segnalazione
@@ -67,8 +88,17 @@ class ActivitySheetModel(models.Model):
         machine_down_time_hours = models.IntegerField(null=True, blank=True)
         machine_down_time_minutes = models.IntegerField(null=True, blank=True)
         machine_down_time_duration = models.IntegerField(null=True, blank=True)
+
+        # Per tutte le schede
+        intervention_description = models.TextField(max_length=2000, null=True, blank=True)
+
+        # Intervento preventiva
         intervention_type = models.ForeignKey(InterventionTypeModel, null=True, blank=True)
         component_status =  models.ForeignKey(ComponentStatusModel, null=True, blank=True)
-        intervention_description = models.TextField(max_length=500, null=True, blank=True)
 
+        # Intervento correttiva
+        fault_type = models.ForeignKey(FaultTypeModel, null=True, blank=True)
+        fault_cause = models.ForeignKey(FaultCauseModel, null=True, blank=True)
+        fault_effect = models.ForeignKey(FaultEffectModel, null=True, blank=True)
+        fault_description = models.TextField(max_length=2000, null=True, blank=True)
 
