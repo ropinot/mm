@@ -32,7 +32,7 @@ def add_activity_sheet(request, sheet_type):
         :return:
         """
 
-        form = ActivitySheetForm(request.POST or None)
+        form = ActivitySheetForm(request.POST or None, initial={'sheet_type': sheet_type})
         if form.is_valid():
                 form.save()
                 return render(request, 'mmmain/index.html')

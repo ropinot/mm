@@ -58,6 +58,7 @@ class FaultEffectModel(models.Model):
 
 
 class ActivitySheetModel(models.Model):
+        sheet_type = models.CharField(max_length=20, null=True, blank=True)  # TODO: collegare a modello
         entry_date = models.DateField(null=True, blank=True) #data segnalazione
         entry_time = models.TimeField(null=True, blank=True) #ora segnalazione
         requested_by = models.CharField(max_length=20, null=True, blank=True)  # TODO: Eredita dall'ID dello user?

@@ -56,6 +56,9 @@ ispettiva
 {% endif %}
 </b></h6>
 
+<!-- Hidden field for the sheet_type -->
+{{ form.sheet_type }}
+
 <fieldset><legend>Dati intervento</legend>
 
 <div class="row"><div class="one twelfths"> </div><div class="two twelfths">{{ form.entry_date.label }}{{ form.entry_date }}{% for e in form.entry_date.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div><div class="two twelfths">{{ form.entry_time.label }}{{ form.entry_time }}{% for e in form.entry_time.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div>

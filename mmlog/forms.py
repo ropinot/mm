@@ -14,7 +14,8 @@ import time
 
 class ActivitySheetForm(forms.ModelForm):
         # MODIFICA DEL WIDGET STANDARD PER I CAMPI DEL DB
-        # id = forms.CharField(widget=w.HiddenInput, required=False)
+
+        sheet_type = forms.CharField(widget=w.HiddenInput, required=False)
 
         entry_date = forms.DateField(label="Data segnalazione", initial=time.strftime("%d/%m/%Y"))
         entry_time = forms.TimeField(label="Ora segnalazione", initial=time.strftime("%H:%M"))
