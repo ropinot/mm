@@ -25,7 +25,12 @@ def index(request):
 #                 context = {'title': 'TITOLO DI PROVA', 'form': form}
 #                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
-def add_activity_sheet(request):
+def add_activity_sheet(request, sheet_type):
+        """
+        :param request:
+        :param sheet_type: preventiva (100), correttiva (200), ispettiva (300)
+        :return:
+        """
 
         form = ActivitySheetForm(request.POST or None)
         if form.is_valid():
@@ -33,7 +38,7 @@ def add_activity_sheet(request):
                 return render(request, 'mmmain/index.html')
                 # return index(request) #SOSTITUIRE CON REDIRECT???
         else:
-                context = {'title': '', 'form': form, 'form_action': reverse_lazy('add_activity_sheet')}
+                context = {'title': '', 'form': form, 'form_action': '/mmlog/add_activity_sheet/'+sheet_type, 'sheet_type': sheet_type}
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 

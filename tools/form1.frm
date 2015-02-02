@@ -31,17 +31,18 @@
 
     <div id="preventiva">
     <fieldset><legend>Manutenzione preventiva</legend>
-! $ 1 intervention_type 2 $ 1 component_status 2
+! $ 1 intervention_type 3 $ 1 component_status 3
 ! $ 1 intervention_description 6
     </fieldset>
     </div>
 
     <div id="correttiva">
     <fieldset><legend>Manutenzione correttiva</legend>
-! $ 1 fault_type  3
-! $ 1 fault_cause  3
-! $ 1 fault_effect  3
+! $ 1 fault_type  4
+! $ 1 fault_cause  4
+! $ 1 fault_effect  4
 ! $ 1 fault_description 6
+! $ 1 intervention_description 6
     </fieldset>
     </div>
 </fieldset>
