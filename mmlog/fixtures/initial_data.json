@@ -74,73 +74,73 @@
     {
     "model": "mmlog.FaultTypeModel",
     "fields": {
-      "status": "Civile"
+      "fault_type": "Civile"
     }
   },
       {
     "model": "mmlog.FaultTypeModel",
     "fields": {
-      "status": "Elettrico"
+      "fault_type": "Elettrico"
     }
   },
       {
     "model": "mmlog.FaultTypeModel",
     "fields": {
-      "status": "Meccanica"
+      "fault_type": "Meccanica"
     }
   },
       {
     "model": "mmlog.FaultTypeModel",
     "fields": {
-      "status": "Sensoristica"
+      "fault_type": "Sensoristica"
     }
   },
       {
     "model": "mmlog.FaultCauseModel",
     "fields": {
-      "status": "Cause esterne"
+      "fault_cause": "Cause esterne"
     }
   },
       {
     "model": "mmlog.FaultCauseModel",
     "fields": {
-      "status": "Errata regolazione"
+      "fault_cause": "Errata regolazione"
     }
   },
       {
     "model": "mmlog.FaultCauseModel",
     "fields": {
-      "status": "Rottura"
+      "fault_cause": "Rottura"
     }
   },
       {
     "model": "mmlog.FaultCauseModel",
     "fields": {
-      "status": "Usura"
+      "fault_cause": "Usura"
     }
   },
       {
     "model": "mmlog.FaultEffectModel",
     "fields": {
-      "status": "Mancato rispetto limiti"
+      "fault_effect": "Mancato rispetto limiti"
     }
   },
       {
     "model": "mmlog.FaultEffectModel",
     "fields": {
-      "status": "Fermo produttivo"
+      "fault_effect": "Fermo produttivo"
     }
   },
       {
     "model": "mmlog.FaultEffectModel",
     "fields": {
-      "status": "Funzionamento parziale"
+      "fault_effect": "Funzionamento parziale"
     }
   },
       {
     "model": "mmlog.FaultEffectModel",
     "fields": {
-      "status": "Nessuna conseguenza"
+      "fault_effect": "Nessuna conseguenza"
     }
   }
 ]
