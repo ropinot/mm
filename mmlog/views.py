@@ -56,13 +56,14 @@ def update_activity(request, id=None):
                         #         print v, ": ", a.__dict__[v]
                         return render(request, 'mmmain/index.html')
                 else:
-                        context = {'title': '', 'form': form, 'form_action': '/mmlog/update_activity/'+id}
+                        # TODO: portare fuori il context dall'if in modo che vada bene per tutti i casi
+                        context = {'title': '', 'form': form, 'form_action': '/mmlog/update_activity/'+id, 'sheet_type': obj.__dict__['sheet_type']}
                         return render(request, 'mmlog/add_activity_sheet.html', context)
 
         else:
 
                 form = ActivitySheetForm(instance=obj)
-                return render(request, 'mmlog/add_activity_sheet.html', {'form': form, 'form_action': '/mmlog/update_activity/'+id})
+                return render(request, 'mmlog/add_activity_sheet.html', {'form': form, 'form_action': '/mmlog/update_activity/'+id, 'sheet_type': obj.__dict__['sheet_type']})
 
 
 def list_activity_sheets_by_date(request):
