@@ -25,27 +25,27 @@ class ActivitySheetForm(forms.ModelForm):
         status = forms.ModelChoiceField(ActivityStatusModel.objects.all(), label="Stato", initial=0)
         internal_responsible = forms.CharField(max_length=20, label="Responsabile")
         num_internal_operators = forms.CharField(widget=w.NumberInput, label="N. Oper.", initial=0)
-        internal_intervention_time_days = forms.CharField(max_length=4, label="Giorni", initial=0, required=False)
-        internal_intervention_time_hours = forms.CharField(max_length=4, label="Ore", initial=0, required=False)
-        internal_intervention_time_minutes = forms.CharField(max_length=4, label="Minuti", initial=0, required=False)
-        internal_intervention_duration = forms.CharField(max_length=4, label="Totale (minuti)", initial=0, required=False)
+        internal_intervention_time_days = forms.CharField(max_length=6, label="Giorni", initial=0, required=False)
+        internal_intervention_time_hours = forms.CharField(max_length=6, label="Ore", initial=0, required=False)
+        internal_intervention_time_minutes = forms.CharField(max_length=6, label="Minuti", initial=0, required=False)
+        internal_intervention_duration = forms.CharField(max_length=6, label="Totale (minuti)", initial=0, required=False)
 
         external_company = forms.ModelChoiceField(ExternalMaintenanceCompanyModel.objects.all(), label="Azienda", required=False)
         external_responsible = forms.CharField(max_length=200, label="Responsabile", required=False)
         num_external_operators = forms.CharField(widget=w.NumberInput, label="N. Oper.", required=False, initial=0)
-        external_intervention_time_days = forms.CharField(max_length = 4, label="Giorni", required=False, initial=0)
-        external_intervention_time_hours = forms.CharField(max_length = 4, label="Ore", required=False, initial=0)
-        external_intervention_time_minutes = forms.CharField(max_length = 4, label="Minuti", required=False, initial=0)
-        external_intervention_duration = forms.CharField(max_length = 4, label="Totale (minuti)", required=False, initial=0)
+        external_intervention_time_days = forms.CharField(max_length = 6, label="Giorni", required=False, initial=0)
+        external_intervention_time_hours = forms.CharField(max_length = 6, label="Ore", required=False, initial=0)
+        external_intervention_time_minutes = forms.CharField(max_length = 6, label="Minuti", required=False, initial=0)
+        external_intervention_duration = forms.CharField(max_length = 6, label="Totale (minuti)", required=False, initial=0)
 
         intervention_start_date = forms.DateField(label="Data inizio", required=False) #data inizio manutenzione
         intervention_start_time = forms.TimeField(label="Ora inizio", required=False) #ora inizio manutenzione
         intervention_completion_date = forms.DateField(label="Data fine", required=False) #data fine manutenzione
         intervention_completion_time = forms.TimeField(label="Ora fine", required=False) #ora fine manutenzione
-        machine_down_time_days = forms.CharField(label="Giorni", required=False, initial=0)
-        machine_down_time_hours = forms.CharField(label="Ore", required=False, initial=0)
-        machine_down_time_minutes = forms.CharField(label="Minuti", required=False, initial=0)
-        machine_down_time_duration = forms.CharField(label="Totale (minuti)", required=False, initial=0)
+        machine_down_time_days = forms.CharField(max_length = 6, label="Giorni", required=False, initial=0)
+        machine_down_time_hours = forms.CharField(max_length = 6, label="Ore", required=False, initial=0)
+        machine_down_time_minutes = forms.CharField(max_length = 6, label="Minuti", required=False, initial=0)
+        machine_down_time_duration = forms.CharField(max_length = 6, label="Totale (minuti)", required=False, initial=0)
 
         intervention_description = forms.CharField(widget=forms.Textarea, label="Descrizione dell'intervento", required=False)
 
