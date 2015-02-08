@@ -14,9 +14,14 @@
             {% block tree%}
                 <!-- QUESTA PARTE DEVE ESSERE CREATA DINAMICAMENTE
                     DAI DATI DEL DB -->
+                <div id="ajax-test">
+                    {% autoescape off %}
+                    {{ tree }}
+                    {% endautoescape %}
+                </div>
                 <div id="tree">
                   <ul id="treeData" style="display: none;">
-                    <li id="1">Impianto A
+                    <li id="1" name="A.1">Impianto A
                       <ul>
                         <li id="3">Macchina 1
                           <ul>
@@ -105,13 +110,24 @@ VALORE {{ sheet_type }} NON VALIDO
     </fieldset></div>
     {% endif %}
 
+    {% if sheet_type = "300" %}
+    <div id="ispettiva">
+    <div id="ispettiva">
+
+    <fieldset><legend>Manutenzione ispettiva</legend>
+
+<div class="row"><div class="one twelfths"> </div><div class="six twelfths">{{ form.intervention_description.label }}{{ form.intervention_description }}{% for e in form.intervention_description.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div>
+<div class="row"><div class="one twelfths"> </div><div class="six twelfths">{{ form.measurements.label }}{{ form.measurements }}{% for e in form.measurements.errors %}<p class="red message">{{ e }}</p>{% endfor %}</div></div>
+    </fieldset></div>
+    {% endif %}
+
 </fieldset></div>
 
                     <!-- FORM END -->
                     <input type="submit" value="Salva" />
                 </form>
         <script>
-
+        <!-- TODO: move to the headers -->
                 //function required to automatically update the duration fields
                 function update_total_duration(){
                         a = $("#id_internal_intervention_time_days").val() * 60 * 24,

@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
+from django.db.models import F
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from mmlog.forms import ActivitySheetForm
-from mmlog.models import ActivitySheetModel
+from mmlog.models import ActivitySheetModel, PlantModel
 
 
 def index(request):
@@ -31,14 +32,15 @@ def add_activity_sheet(request, sheet_type):
         :param sheet_type: preventiva (100), correttiva (200), ispettiva (300)
         :return:
         """
-
+        # tree = get_parent_of()
+        tree = ""
         form = ActivitySheetForm(request.POST or None, initial={'sheet_type': sheet_type})
         if form.is_valid():
                 form.save()
                 return render(request, 'mmmain/index.html')
                 # return index(request) #SOSTITUIRE CON REDIRECT???
         else:
-                context = {'title': '', 'form': form, 'form_action': '/mmlog/add_activity_sheet/'+sheet_type, 'sheet_type': sheet_type}
+                context = {'title': '', 'form': form, 'form_action': '/mmlog/add_activity_sheet/'+sheet_type, 'sheet_type': sheet_type, 'tree':tree} #TODO: il contenuto di tree deve essere l'albero dell'impianto
                 return render(request, 'mmlog/add_activity_sheet.html', context)
 
 
@@ -75,3 +77,19 @@ def list_activity_sheets_by_date(request):
 def create_tree(request):
 
         return render(request, 'mmlog/create_tree.html')
+
+def get_parent_of(parentid=None):
+        if parentid == None:
+                obj = PlantModel.objects.filter(pk=F('parent'))
+        else:
+                obj = PlantModel.objects.filter(parent=parentid)
+
+        tree = "<ul>"
+        for o in obj:
+                tree += "<li>"
+                tree += o.component
+                tree += "</li>"
+
+        tree += "</ul>"
+        print tree
+        return tree

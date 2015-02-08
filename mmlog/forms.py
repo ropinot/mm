@@ -60,6 +60,11 @@ class ActivitySheetForm(forms.ModelForm):
         fault_effect = forms.ModelChoiceField(FaultEffectModel.objects.all(), label="Effetto del guasto", required=False)
         fault_description = forms.CharField(widget=forms.Textarea, label="Descrizione del guasto", required=False)
 
+
+        # Intervento ispettiva
+        measurements = forms.CharField(widget=forms.Textarea, label="Valori misurati", required=False)
+
+
         class Meta:
                 # MODELLO ASSOCIATO
                 model = ActivitySheetModel

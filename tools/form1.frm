@@ -45,6 +45,14 @@
 ! $ 1 intervention_description 6
     </fieldset>
     </div>
+
+    <div id="ispettiva">
+    <fieldset><legend>Manutenzione ispettiva</legend>
+! $ 1 intervention_description 6
+! $ 1 measurements 6
+    </fieldset>
+    </div>
+
 </fieldset>
 
 
