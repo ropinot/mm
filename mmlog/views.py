@@ -3,7 +3,8 @@ from django.db.models import F
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from mmlog.forms import ActivitySheetForm
-from mmlog.models import ActivitySheetModel, PlantModel
+from mmlog.models import ActivitySheetModel
+from mmplantDB.models import PlantModel
 
 
 def index(request):

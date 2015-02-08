@@ -15,7 +15,9 @@ urlpatterns = patterns('',
     url(r'^mmsupplierDB/', include('mmsupplierDB.urls')),
     url(r'^mmreport/', include('mmreport.urls')),
     url(r'^mmcalendar/', include('mmcalendar.urls')),
+    url(r'^mmplantDB/', include('mmplantDB.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
 
     # AGGIUNGERE UN URL PER GESTIRE LE RICHIESTE NON VALIDE
 )
