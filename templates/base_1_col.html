@@ -56,8 +56,16 @@ div.cb  /*classe per restringere il corpo della pagina*/
 
     <div class="row" id="header">
 
-            <h1 class="box">MMLOG</h1> {% block header %}{% endblock %}
-
+            <h1 class="box">MMLOG</h1>
+                {% block header %}{% endblock %}
+                <div>
+                    {{ user }}
+                    {% if user.is_anonymous %}
+                        <a href="{% url 'django.contrib.auth.views.login' %}">login</a>
+                    {% else %}
+                        <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+                    {% endif %}
+                </div>
     </div>
 
     <div class="row" id="body">
