@@ -144,31 +144,38 @@
     }
   },
       {
-    "model": "mmlog.PlantModel",
+    "model": "mmplantDB.PlantModel",
+    "fields": {
+      "component": "Root",
+      "parent": 1
+    }
+  },
+      {
+    "model": "mmplantDB.PlantModel",
     "fields": {
       "component": "Impianto A",
       "parent": 1
     }
   },
       {
-    "model": "mmlog.PlantModel",
+    "model": "mmplantDB.PlantModel",
     "fields": {
       "component": "Impianto B",
+      "parent": 1
+    }
+  },
+      {
+    "model": "mmplantDB.PlantModel",
+    "fields": {
+      "component": "Componente A.1",
       "parent": 2
     }
   },
       {
-    "model": "mmlog.PlantModel",
-    "fields": {
-      "component": "Componente A.1",
-      "parent": 1
-    }
-  },
-      {
-    "model": "mmlog.PlantModel",
+    "model": "mmplantDB.PlantModel",
     "fields": {
       "component": "Componente A.2",
-      "parent": 1
+      "parent": 2
     }
   }
 ]

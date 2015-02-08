@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from django.db.models import F
 from mmplantDB.models import PlantModel
 # Create your views here.
 
@@ -7,13 +8,13 @@ def index(request):
         return HttpResponse("<h1>TUtto Ok</h1>")
 
 
-def get_children(request, parent_id=0):
-        if parent_id == -1:
+def get_children(request, parent=0):
+        if parent == 0:
                 # return HttpResponse("<h1>Get -1</h1>")
-                obj = PlantModel.objects.filter(pk=F('parent'))
+                obj = PlantModel.objects.filter(id__exact=F('parent_id'))
         else:
                 # return HttpResponse("<h1>Get {} </h1>".format(parent_id))
-                obj = PlantModel.objects.filter(parent=parent_id)
+                obj = PlantModel.objects.filter(parent_id=parent)
 
         tree = "<ul>"
         for o in obj:
@@ -22,5 +23,5 @@ def get_children(request, parent_id=0):
                 tree += "</li>"
 
         tree += "</ul>"
-        # print tree
+        print tree
         return HttpResponse(tree)

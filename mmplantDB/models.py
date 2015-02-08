@@ -5,3 +5,6 @@ from django.db import models
 class PlantModel(models.Model):
         component = models.CharField(max_length=150, null=True, blank=True)
         parent = models.ForeignKey('self', null=True, blank=True)   # 'self' per fare riferimento al modello stesso
+
+        def __unicode__(self):
+                return self.component

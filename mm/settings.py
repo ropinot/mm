@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'mmmain',
     'mmsupplierDB',
     'mmreport',
-    'mmcalendar'
+    'mmcalendar',
+    'mmplantDB',
 )
 
 MIDDLEWARE_CLASSES = (
