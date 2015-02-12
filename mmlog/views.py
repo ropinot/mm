@@ -36,6 +36,7 @@ def add_activity_sheet(request, sheet_type):
         # tree = get_parent_of()
         tree = ""
         form = ActivitySheetForm(request.POST or None, initial={'sheet_type': sheet_type})
+        form.fields['component'].widget.attrs['readonly'] = True
         if form.is_valid():
                 form.save()
                 return render(request, 'mmmain/index.html')
