@@ -34,8 +34,9 @@ def add_activity_sheet(request, sheet_type):
         :return:
         """
         # tree = get_parent_of()
+
         tree = ""
-        form = ActivitySheetForm(request.POST or None, initial={'sheet_type': sheet_type, 'requested_by': request.user})
+        form = ActivitySheetForm(request.POST or None, initial={'sheet_type': sheet_type, 'requested_by': request.user.first_name +" "+request.user.last_name})
         form.fields['component'].widget.attrs['readonly'] = True
         if form.is_valid():
                 form.save()
